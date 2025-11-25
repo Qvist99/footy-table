@@ -1,96 +1,20 @@
+"use client"
 import { Fixtures } from "./fixtures"
+import type { Fixture } from "@/lib/types"
+import { useRoundStore } from "@/lib/providers/round-store-provider";
 
-export function MatchDayFixtures() {
+export function MatchDayFixtures({ fixtures }: { fixtures: Fixture[] }) {
 
+    const { round } = useRoundStore((state) => state);
 
+    const filteredFixtures = fixtures.filter(fixture => fixture.round === round);
 
-
-
-    let dummyFixtures = [
-        {
-            matchId: 6143152,
-            homeTeamAbbrv: "AIK",
-            homeTeamName: "AIK",
-            homeTeamScore: 0,
-            homeTeamLogo: "",
-            round: 1,
-            startDate: "2025-03-29T14:00:00.000Z",
-            visitingTeamAbbrv: "GAIS",
-            visitingTeamName: "GAIS",
-            visitingTeamScore: 1,
-            visitingTeamLogo: "",
-            status: "FINISHED",
-            matchEvents: []
-        },
-        {
-            matchId: 611143152,
-            homeTeamAbbrv: "AIK",
-            homeTeamName: "AIK",
-            homeTeamScore: 0,
-            homeTeamLogo: "",
-            round: 1,
-            startDate: "2025-03-29T14:00:00.000Z",
-            visitingTeamAbbrv: "GAIS",
-            visitingTeamName: "GAIS",
-            visitingTeamScore: 1,
-            visitingTeamLogo: "",
-            status: "FINISHED",
-            matchEvents: []
-        },
-        {
-            matchId: 6145323152,
-            homeTeamAbbrv: "AIK",
-            homeTeamName: "AIK",
-            homeTeamScore: 0,
-            homeTeamLogo: "",
-            round: 1,
-            startDate: "2025-03-29T14:00:00.000Z",
-            visitingTeamAbbrv: "GAIS",
-            visitingTeamName: "GAIS",
-            visitingTeamScore: 1,
-            visitingTeamLogo: "",
-            status: "FINISHED",
-            matchEvents: []
-        },
-        {
-            matchId: 6112443152,
-            homeTeamAbbrv: "AIK",
-            homeTeamName: "AIK",
-            homeTeamScore: 0,
-            homeTeamLogo: "",
-            round: 1,
-            startDate: "2025-03-29T14:00:00.000Z",
-            visitingTeamAbbrv: "GAIS",
-            visitingTeamName: "GAIS",
-            visitingTeamScore: 1,
-            visitingTeamLogo: "",
-            status: "FINISHED",
-            matchEvents: []
-        },
-        {
-            matchId: 614323152,
-            homeTeamAbbrv: "AIK",
-            homeTeamName: "AIK",
-            homeTeamScore: 0,
-            homeTeamLogo: "",
-            round: 1,
-            startDate: "2025-03-29T14:00:00.000Z",
-            visitingTeamAbbrv: "GAIS",
-            visitingTeamName: "GAIS",
-            visitingTeamScore: 1,
-            visitingTeamLogo: "",
-            status: "FINISHED",
-            matchEvents: []
-        }
-    ]
-
-
-    let fixtures = new Fixtures(dummyFixtures)
+    let fixturesClass = new Fixtures(filteredFixtures)
 
 
     return (
         <div>
-            {fixtures.getFixtures()}
+            {fixturesClass.getFixtures()}
         </div>
     )
 }

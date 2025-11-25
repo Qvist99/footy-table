@@ -1,17 +1,38 @@
-export interface Fixture {
-    matchId: number;
+export interface FixtureFromAllsvenskanAPI {
+    id: number;
     homeTeamAbbrv: string;
+    homeTeamEverySportId: number;
+    homeTeamFogisId: number;
     homeTeamName: string;
+    homeTeamNameFormatted: string;
     homeTeamScore: number;
-    homeTeamLogo: string;
     round: number;
     startDate: string;
     visitingTeamAbbrv: string;
+    visitingTeamEverySportId: number;
+    visitingTeamFogisId: number;
+    visitingTeamName: string;
+    visitingTeamNameFormatted: string;
+    visitingTeamScore: number;
+    status: string; //"FINISHED" | "UPCOMING"
+}
+
+export interface Fixture {
+    id: number;
+    homeTeamAbbrv: string;
+    homeTeamId: number;
+    homeTeamName: string;
+    homeTeamScore: number;
+    homeTeamLogoUrl: string;
+    round: number;
+    startDate: string;
+    visitingTeamAbbrv: string;
+    visitingTeamId: number;
     visitingTeamName: string;
     visitingTeamScore: number;
-    visitingTeamLogo: string;
+    visitingTeamLogoUrl: string;
     status: string; //"FINISHED" | "UPCOMING"
-    matchEvents: MatchEvent[]
+    events?: MatchEvent[];
 }
 
 type MatchEvent = {
@@ -21,4 +42,23 @@ type MatchEvent = {
     homeTeamScore: string;
     type: string; //"GAME_FINISHED" | "SUBSTITUTION" | "GOAL" | "WARNING";
     half: number;
+}
+
+
+export interface FixturesResponse {
+    data: {
+        matchesForLeague: {
+            matches: FixtureFromAllsvenskanAPI[]
+        }
+    }
+}
+
+
+export interface LogosByAbbrvResponse {
+    data: {
+        [abbrv: string]: {
+            abbrv: string;
+            logoImageUrl: string;
+        }
+    }
 }
