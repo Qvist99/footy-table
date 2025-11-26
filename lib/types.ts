@@ -62,3 +62,23 @@ export interface LogosByAbbrvResponse {
         }
     }
 }
+
+
+export interface TeamStandings {
+    [teamId: number]: TeamInStandings
+}
+
+export interface TeamInStandings {
+        id: number;
+        name: string;
+        abbrv: string;
+        logoUrl: string;
+        playedGames: number;
+        wins: number;
+        draws: number;
+        losses: number;
+        goalsFor: number;
+        goalsAgainst: number;
+        goalDifference: number;
+        points: number;
+    }

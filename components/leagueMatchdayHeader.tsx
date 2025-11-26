@@ -13,7 +13,7 @@ export function LeagueMatchdayHeader() {
 
     return (
         <div className="flex justify-between ">
-            <div className="w-[320px] text-white">
+            <div className="w-[520px] text-white">
                 <select className="w-full h-8 border border-[#E2B714] rounded-md px-2">
                     <option>Allsvenskan</option>
                 </select>

@@ -1,15 +1,12 @@
 "use client"
-import type { Fixture } from "@/lib/types"
 import { useRoundStore } from "@/lib/providers/round-store-provider";
 import { FixtureCard } from "./fixtures/fixtureCard";
-import { type StoredFixture, useFixtureStorage } from "@/lib/hooks/useFixtureStorage";
-import { FixtureStorageProvider, useFixtureStorageContext } from "@/lib/providers/fixture-storage-provider";
+import { useFixtureStorageContext } from "@/lib/providers/fixture-storage-provider";
 
 
 //initialize the users localStorage > if exists we load in the already saved data
 /* 
 local storage example:
-
 
 {
   "leagueId": {
@@ -33,38 +30,25 @@ local storage example:
  
 */
 
-export function MatchDayFixtures({ fixtures }: { fixtures: Fixture[] }) {
+export function MatchDayFixtures({ leagueId }: { leagueId: number }) {
 
-    const { round } = useRoundStore((state) => state);
+  const { round } = useRoundStore((state) => state);
+  const { storedData } = useFixtureStorageContext();
 
-    const leagueId = 1 // hardcoded for now will be dynamic later
+  if (!storedData) {
+    console.log("No stored data available in context.");
+    return <div>Loading...</div>;
+  }
 
+  const roundFixtures = storedData[leagueId][round]?.fixtures || [];
 
-    return (
-        <FixtureStorageProvider leagueId={leagueId} fixtures={fixtures}>
-            <MatchDayFixtureContent round={round} />
-        </FixtureStorageProvider>
-    )
-}
-
-function MatchDayFixtureContent({ round }: { round: number }) {
-    const { storedData } = useFixtureStorageContext();
-
-    if (!storedData) {
-        console.log("No stored data available in context.");
-        return <div>Loading...</div>;
-    }
-
-    const leagueId = 1; // hardcoded for now will be dynamic later
-    const roundFixtures = storedData[leagueId][round]?.fixtures || [];
-
-    return (
-        <div className="grid w-full gap-2 grid-cols-[repeat(auto-fit,minmax(290px,1fr))]">
-            {roundFixtures.map(fixture => (
-                <FixtureCard key={fixture.id} fixture={fixture} />
-            ))}
-        </div>
-    );
-
+  return (
+    <div className="grid w-full gap-2 grid-cols-[repeat(auto-fit,minmax(290px,1fr))]">
+      {roundFixtures.map(fixture => (
+        <FixtureCard key={fixture.id} fixture={fixture} />
+      ))}
+    </div>
+  );
 
 }
+
