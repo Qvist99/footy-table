@@ -43,8 +43,8 @@ export function useFixtureStorage(leagueId: number, fixtures: Fixture[]){
                 //new fixture initialize with predictions
                 storedList.push({
                     ...fixture,
-                    predictedHomeTeamScore: 0,
-                    predictedVisitingTeamScore: 0
+                    predictedHomeTeamScore: "",
+                    predictedVisitingTeamScore: ""
                 })
             }else{
                 //existing fixture update data except predictions

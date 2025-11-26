@@ -9,8 +9,9 @@ export function FixtureScoreInput({ fixture, type }: { fixture: StoredFixture, t
         ? fixture.predictedHomeTeamScore
         : fixture.predictedVisitingTeamScore;
 
+    //fallback to 0 if match is finished and no prediction was made
     const [value, setValue] = useState(
-        storedValue === "" || storedValue === null ? "0" : String(storedValue)
+        fixture.status === "FINISHED" && storedValue === "" ? "0" : String(storedValue)
     );
 
 
