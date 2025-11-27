@@ -37,8 +37,8 @@ function renderStatus(fixture: Fixture) {
 
 export function FixtureStatus({ fixture }: { fixture: Fixture }) {
     return (
-        <div className="flex flex-col items-center justify-between h-full py-[21px]">
-            <div className="text-center text-nowrap text-xs lg:text-sm xl:text-base">
+        <div className="flex flex-col items-center justify-between h-full py-[13px]">
+            <div className="text-center text-nowrap text-xs lg:text-sm xl:text-base ">
                 {renderStatus(fixture)}
             </div>
 
