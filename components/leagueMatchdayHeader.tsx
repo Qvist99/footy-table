@@ -10,10 +10,14 @@ export function LeagueMatchdayHeader() {
 
     // The selected league will currently be hardcoded to allsvenskan
     // Change when more league are added as we then will fetch from our own DB
+    // Swap the select for a custom dropdown component later
 
     return (
         <div className="flex justify-between ">
-            <div className="w-[520px] text-white">
+            <div className="
+                    min-w-[39%]
+                    2xl:min-w-[30%]
+                    text-white">
                 <select className="w-full h-8 border border-[#E2B714] rounded-md px-2">
                     <option>Allsvenskan</option>
                 </select>
@@ -21,7 +25,7 @@ export function LeagueMatchdayHeader() {
 
             <div className="flex gap-4 items-center">
                 <div className="text-white">
-                    <p className="text-2xl">Matchday {round} / {totalRounds}</p>
+                    <p className="text-xl xl:text-2xl">Matchday {round} / {totalRounds}</p>
                 </div>
 
                 <div className="flex gap-2 text-[#E2B714] ">

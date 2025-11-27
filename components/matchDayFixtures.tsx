@@ -43,10 +43,25 @@ export function MatchDayFixtures({ leagueId }: { leagueId: number }) {
   const roundFixtures = storedData[leagueId][round]?.fixtures || [];
 
   return (
-    <div className="grid w-full gap-2 grid-cols-[repeat(auto-fit,minmax(290px,1fr))]">
-      {roundFixtures.map(fixture => (
-        <FixtureCard key={fixture.id} fixture={fixture} />
-      ))}
+    <div className="h-full">
+
+
+      <div className="
+        grid 
+        w-full 
+        gap-2 
+        [--card-min:150px]
+        xl:[--card-min:185px]
+        2xl:[--card-min:255px]
+        3xl:[--card-min:285px]
+        grid-cols-[repeat(auto-fit,minmax(var(--card-min),1fr))] 
+
+        
+        ">
+        {roundFixtures.map(fixture => (
+          <FixtureCard key={fixture.id} fixture={fixture} />
+        ))}
+      </div>
     </div>
   );
 

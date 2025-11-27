@@ -19,6 +19,13 @@
   }
 } */
 
+@theme {
+  --breakpoint-3xl: 103rem;
+  --breakpoint-xl: 82.5rem;
+  --breakpoint-md: 50rem;
+}
+
+
 body {
   background: #323437;
 }

@@ -147,21 +147,53 @@ export function StandingsPanel({ leagueId }: { leagueId: number }) {
     function createPositionElement(position: number) {
         let color = ""
         let tooltip = ""
+        let cursorType = "default"
         for (const key in config.specialSpots) {
             const spot = config.specialSpots[key as keyof typeof config.specialSpots];
             if (spot.position.includes(position)) {
                 color = spot.backgroundColor;
                 tooltip = spot.tooltipMessage;
+                cursorType = "help";
                 break;
             }
         }
 
-        // Add real tooltip and cursor help only if color is set 
+        /* 
+        Keep in case we change mind in future about design
+        Horizontal allignment
+        xl:w-[40%]
+                    xl:h-[5px]
+                    xl:bottom-0
+                    xl:left-1/2
+                    xl:top-auto
+                    xl:translate-y-0
+                    xl:-translate-x-1/2
+                    xl:rounded-tr-[5px]
+                    xl:rounded-tl-[5px]
+                    xl:rounded-br-none
+        */
+
+        // Add real tooltip in future 
         return (
-            <td title={tooltip} className="text-center relative cursor-help">
+            <td title={tooltip}
+                className="text-center relative"
+                style={{ cursor: cursorType }}
+            >
                 <div>
-                    {position}
-                    <span className={`absolute h-[5px] left-[30%] rounded-tr-[5px] rounded-tl-[5px] bottom-0 w-[40%]`}
+                    <span className="pl-1 xl:pl-0">
+                        {position}
+                    </span>
+                    <span className={`
+                    absolute 
+                    w-[5px]
+                    rounded-tr-[5px] 
+                    rounded-br-[5px] 
+                    bottom-0 
+                    top-1/2
+                    left-0
+                    -translate-y-1/2
+                    `
+                    }
                         style={{ backgroundColor: color }}
                     >
                     </span>
@@ -172,11 +204,11 @@ export function StandingsPanel({ leagueId }: { leagueId: number }) {
 
 
     return (
-        <div className=" w-full h-[684px] border border-[#E2B714] rounded-md text-[#D1D0C5]">
-            <table className="w-full table-auto h-full ">
+        <div className=" w-full h-full border border-[#E2B714] rounded-md text-[#D1D0C5]">
+            <table className="w-full table-auto h-full text-xs lg:text-sm xl:text-base">
                 <thead className="">
                     <tr className="border-b border-[#E2B714]">
-                        <th className="text-center font-normal">#</th>
+                        <th className="text-center font-normal pl-1">#</th>
                         <th className="text-left">Team</th>
                         <th className="text-center font-normal">P</th>
                         <th className="text-center font-normal">W</th>

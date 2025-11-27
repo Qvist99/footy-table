@@ -31,7 +31,11 @@ export default function RootLayout({
         className="bg-[#323437] h-full"
       >
         <Navbar />
-        <div className="px-[110px] pt-[60px]">
+        <div className="
+          px-2.5
+          lg:px-[110px] 
+          pt-[60px]"
+        >
           {children}
         </div>
       </body>

@@ -10,11 +10,11 @@ export function FixtureCard({ fixture }: { fixture: StoredFixture }) {
   return (
     <div
 
-      className="flex flex-col p-[15px] border border-[#FFCE00] rounded-[5px]"
+      className="flex flex-col p-[15px] border border-[#FFCE00] rounded-[5px] items-center h-[165px] max-h-[165px]"
     >
       {/* Home Team */}
       <div className="flex flex-row justify-between items-center">
-        <div className="flex flex-col items-center justify-between gap-4 p-2">
+        <div className="flex flex-col items-center justify-between gap-8 p-2">
           <FixtureTeam logo={fixture.homeTeamLogoUrl} abbrv={fixture.homeTeamAbbrv} />
           <div>
             <FixtureScoreInput fixture={fixture} type="home" />
@@ -25,7 +25,7 @@ export function FixtureCard({ fixture }: { fixture: StoredFixture }) {
         <FixtureStatus fixture={fixture} />
 
         {/* Visiting Team */}
-        <div className="flex flex-col items-center justify-between gap-4 p-2">
+        <div className="flex flex-col items-center justify-between gap-8 p-2">
           <div>
             <FixtureTeam logo={fixture.visitingTeamLogoUrl} abbrv={fixture.visitingTeamAbbrv} />
           </div>

@@ -11,8 +11,11 @@ export async function MatchDayLayout() {
 
     return (
         <FixtureStorageProvider leagueId={leagueId} fixtures={fixtures}>
-            <div className="flex gap-2 mt-4">
-                <div className="min-w-[520px]">
+            <div className="flex gap-2 mt-4 h-[684px]">
+                <div className="
+                    min-w-[39%]
+                    2xl:min-w-[30%]
+                ">
                     <StandingsPanel leagueId={leagueId} />
                 </div>
 
