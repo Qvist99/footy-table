@@ -5,8 +5,7 @@ predict match outcomes, see actual results, and track their prediction accuracy.
 The app displays fixtures in a card-based grid, allows score input, and updates
 league standings in real time based on match results and user predictions.
 Color-coding helps users quickly identify correct, incorrect, or missing
-predictions. The layout adapts for desktop and mobile, with easy navigation
-between fixtures and standings.
+predictions.
 
 ## Roadmap
 
