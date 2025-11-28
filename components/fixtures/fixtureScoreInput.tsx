@@ -43,12 +43,20 @@ export function FixtureScoreInput({ fixture, type }: { fixture: StoredFixture, t
     }
     function scorePredictionStyle() {
         if (isCompleted && type === "home") {
+            if (fixture.predictedHomeTeamScore === "") {
+                return "border-[#D1D0C5]";
+            }
+
             if (fixture.homeTeamScore === fixture.predictedHomeTeamScore) {
                 return "border-[#56EE93]";
             } else {
                 return "border-[#E8434B]";
             }
         } else if (isCompleted && type === "away") {
+            if (fixture.predictedVisitingTeamScore === "") {
+                return "border-[#D1D0C5]";
+            }
+
             if (fixture.visitingTeamScore === fixture.predictedVisitingTeamScore) {
                 return "border-[#56EE93]";
             } else {
