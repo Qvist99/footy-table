@@ -33,8 +33,10 @@ export default function RootLayout({
         <Navbar />
         <div className="
           px-2.5
+          pt-[25px]
+          md:pt-[60px]
           lg:px-[110px] 
-          pt-[60px]"
+          "
         >
           {children}
         </div>

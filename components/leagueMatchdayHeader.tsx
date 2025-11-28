@@ -3,6 +3,13 @@ import ChevronLeft from "@/utils/icons/chevronLeft.svg";
 import ChevronRight from "@/utils/icons/chevronRight.svg";
 import Image from "next/image";
 import { useRoundStore } from "@/lib/providers/round-store-provider";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 
 export function LeagueMatchdayHeader() {
 
@@ -13,26 +20,47 @@ export function LeagueMatchdayHeader() {
     // Swap the select for a custom dropdown component later
 
     return (
-        <div className="flex justify-between ">
+        <div className="
+        flex 
+        justify-between 
+        items-center
+        md:items-end 
+        ">
             <div className="
                     min-w-[39%]
                     2xl:min-w-[30%]
                     text-white">
-                <select className="w-full h-8 border border-[#E2B714] rounded-md px-2">
-                    <option>Allsvenskan</option>
-                </select>
+                <Select defaultValue="allsvenskan">
+                    <SelectTrigger className="w-full h-8 border border-[#E2B714] rounded-md px-2">
+                        <SelectValue placeholder="Select a league" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="allsvenskan">Allsvenskan</SelectItem>
+                    </SelectContent>
+                </Select>
             </div>
 
-            <div className="flex gap-4 items-center">
+            <div className="
+                flex 
+                gap-2 
+                justify-end 
+                items-center
+            ">
                 <div className="text-white">
-                    <p className="text-xl xl:text-2xl">Matchday {round} / {totalRounds}</p>
+                    <p className="
+                        text-sm 
+                        md:text-xl 
+                        xl:text-2xl
+                    ">
+                        Matchday {round} / {totalRounds}
+                    </p>
                 </div>
 
                 <div className="flex gap-2 text-[#E2B714] ">
-                    <button className="flex justify-center items-center border h-6 w-6 rounded-md cursor-pointer" onClick={decrementRound}>
+                    <button className="flex justify-center items-center border h-6 w-6 rounded-md cursor-pointer border-[#E2B714]" onClick={decrementRound}>
                         <Image src={ChevronLeft} alt="Previous Matchday" className="h-4 w-4" />
                     </button>
-                    <button className="flex justify-center items-center border h-6 w-6 rounded-md cursor-pointer" onClick={incrementRound}>
+                    <button className="flex justify-center items-center border h-6 w-6 rounded-md cursor-pointer border-[#E2B714]" onClick={incrementRound}>
                         <Image src={ChevronRight} alt="Next Matchday" className="h-4 w-4" />
                     </button>
                 </div>

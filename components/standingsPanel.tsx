@@ -207,7 +207,7 @@ export function StandingsPanel({ leagueId }: { leagueId: number }) {
         <div className=" w-full h-full border border-[#E2B714] rounded-md text-[#D1D0C5]">
             <table className="w-full table-auto h-full text-xs lg:text-sm xl:text-base">
                 <thead className="">
-                    <tr className="border-b border-[#E2B714]">
+                    <tr className="border-b border-[#E2B714] h-10">
                         <th className="text-center font-normal pl-1">#</th>
                         <th className="text-left">Team</th>
                         <th className="text-center font-normal">P</th>
