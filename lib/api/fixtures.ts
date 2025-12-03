@@ -1,5 +1,5 @@
 import { Fixture } from "../types";
-
+import { getBaseUrl } from "@/utils/helpers";
 interface SeasonData{
     upcomingRound: number;
     totalRounds: number;
@@ -11,7 +11,7 @@ interface FixturesForRoundResponse{
 
 //This will be moved in future when seasonData is also moved in the api
 export async function getSeasonData(){
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/fixtures/seasonData`, {next: {revalidate: 60}});
+    const res = await fetch(`${getBaseUrl()}/api/fixtures/seasonData`, {next: {revalidate: 60}, method: 'GET'});
 
     if(!res.ok){
         throw new Error("Failed to fetch season data");
@@ -24,7 +24,7 @@ export async function getSeasonData(){
 }
 
 export async function getAllFixtures(){
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/fixtures`);
+    const res = await fetch(`${getBaseUrl()}/api/fixtures`, {method: 'GET'});
     if(!res.ok){
         throw new Error("Failed to fetch all fixtures");
     }
@@ -34,8 +34,7 @@ export async function getAllFixtures(){
 
 
 export async function getFixturesForRound(round: number){
-    console.log(`${process.env.NEXT_PUBLIC_BASE_URL}/api/fixtures/${round}`)
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/fixtures/${round}`);
+    const res = await fetch(`${getBaseUrl()}/api/fixtures/${round}`, {method: 'GET'});
     
     
     if(!res.ok){
