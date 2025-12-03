@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { FixturesResponse, LogosByAbbrvResponse, Fixture } from "@/lib/types";
+import fixturesJson from "@/static_data/fixtures.json";
+import logosJson from "@/static_data/logos_by_abbrv.json";
 
 
 export async function GET(req: NextRequest) {
-    const fixturesJson: FixturesResponse = require("@/static_data/fixtures.json");
+    const fixtures: FixturesResponse = fixturesJson;
 
-    const matches = fixturesJson.data.matchesForLeague.matches;
+    const matches = fixtures.data.matchesForLeague.matches;
 
-    const logosJson: LogosByAbbrvResponse = require("@/static_data/logos_by_abbrv.json");
+    const logos: LogosByAbbrvResponse = logosJson;
 
     const remapedMatches: Fixture[] = matches.map(match => {
         return {
@@ -16,14 +18,14 @@ export async function GET(req: NextRequest) {
             homeTeamAbbrv: match.homeTeamAbbrv,
             homeTeamName: match.homeTeamName,
             homeTeamScore: match.homeTeamScore,
-            homeTeamLogoUrl: logosJson.data[match.homeTeamAbbrv].logoImageUrl,
+            homeTeamLogoUrl: logos.data[match.homeTeamAbbrv].logoImageUrl,
             round: match.round,
             startDate: match.startDate,
             visitingTeamId: match.visitingTeamFogisId,
             visitingTeamAbbrv: match.visitingTeamAbbrv,
             visitingTeamName: match.visitingTeamName,
             visitingTeamScore: match.visitingTeamScore,
-            visitingTeamLogoUrl: logosJson.data[match.visitingTeamAbbrv].logoImageUrl,
+            visitingTeamLogoUrl: logos.data[match.visitingTeamAbbrv].logoImageUrl,
             status: match.status,
             events: []
         }
