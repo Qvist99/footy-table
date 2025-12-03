@@ -3,7 +3,7 @@ import { FixturesResponse, LogosByAbbrvResponse, Fixture } from "@/lib/types";
 import fixturesJson from "@/static_data/fixtures.json";
 import logosJson from "@/static_data/logos_by_abbrv.json";
 
-
+// Not used, only for learning purposes
 export async function GET(req: NextRequest) {
     const fixtures: FixturesResponse = fixturesJson;
 

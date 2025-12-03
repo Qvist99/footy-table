@@ -1,7 +1,7 @@
 import { LeagueMatchdayHeader } from "@/components/leagueMatchdayHeader";
 import { MatchDayLayout } from "@/components/matchDayLayout";
 import { Suspense } from "react";
-import { getSeasonData } from "@/lib/api/fixtures";
+import { getSeasonData } from "@/lib/fixtures";
 import { RoundStoreProvider } from "@/lib/providers/round-store-provider";
 
 export default async function Home() {

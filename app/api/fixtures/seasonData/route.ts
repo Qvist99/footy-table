@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { FixturesResponse } from "@/lib/types";
 import fixturesJson from "@/static_data/fixtures.json";
 
+
+// Not used, only for learning purposes
+
 //We will probably move this whole route in the future to a more general api route for season data
 export async function GET(req: NextRequest) {
     const fixtures: FixturesResponse = fixturesJson;
