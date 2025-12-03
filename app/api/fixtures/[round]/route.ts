@@ -1,15 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { Fixture, FixturesResponse } from "@/lib/types";
+import fixturesJson from "@/static_data/fixtures.json";
 
 // not being used 
 export async function GET(req: NextRequest, {params}: {params: Promise<{round: string}>}) {
 
     const { round } = await params
 
-    const fixturesJson: FixturesResponse = require("@/static_data/fixtures.json");
+    const fixtures: FixturesResponse = fixturesJson;
 
-    const matches = fixturesJson.data.matchesForLeague.matches.filter(match => match.round.toString() === round);
+    const matches = fixtures.data.matchesForLeague.matches.filter(match => match.round.toString() === round);
 
     return NextResponse.json({ matches });
 

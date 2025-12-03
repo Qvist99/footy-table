@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { FixturesResponse } from "@/lib/types";
+import fixturesJson from "@/static_data/fixtures.json";
 
 //We will probably move this whole route in the future to a more general api route for season data
 export async function GET(req: NextRequest) {
-    const fixturesJson: FixturesResponse = require("@/static_data/fixtures.json");
-
-    const matches = fixturesJson.data.matchesForLeague.matches;
+    const fixtures: FixturesResponse = fixturesJson;
+    const matches = fixtures.data.matchesForLeague.matches;
 
 
     const matchesByRound = matches.reduce((acc, match) => {
