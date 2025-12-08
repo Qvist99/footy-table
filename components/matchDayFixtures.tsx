@@ -1,6 +1,6 @@
 "use client"
 import { useRoundStore } from "@/lib/providers/round-store-provider";
-import { FixtureCard } from "./fixtures/fixtureCard";
+import { FixtureCard } from "./fixtures/FixtureCard";
 import { useFixtureStorageContext } from "@/lib/providers/fixture-storage-provider";
 
 

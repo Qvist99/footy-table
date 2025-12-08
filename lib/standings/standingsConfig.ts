@@ -1,4 +1,4 @@
-export interface StandingsSportStyle {
+export interface StandingsSpotStyle {
     backgroundColor: string;
     position: number[];
     tooltipMessage: string;
@@ -8,12 +8,12 @@ export interface StandingsConfig {
     [leagueId: number]: {
         totalTeams: number;
         specialSpots: {
-            relegationZone: StandingsSportStyle;
-            relegationPlayoff: StandingsSportStyle;
-            promotionSpots: StandingsSportStyle;
-            championsLeagueSpots: StandingsSportStyle;
-            europaLeagueSpots: StandingsSportStyle;
-            conferenceLeagueSpots: StandingsSportStyle;
+            relegationZone: StandingsSpotStyle;
+            relegationPlayoff: StandingsSpotStyle;
+            promotionSpots: StandingsSpotStyle;
+            championsLeagueSpots: StandingsSpotStyle;
+            europaLeagueSpots: StandingsSpotStyle;
+            conferenceLeagueSpots: StandingsSpotStyle;
         }
         tieBreakers: string[];
     }

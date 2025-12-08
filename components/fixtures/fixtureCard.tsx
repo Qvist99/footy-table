@@ -1,7 +1,7 @@
 
-import { FixtureStatus } from "./fixtureStatus";
-import { FixtureTeam } from "./fixtureTeam";
-import { FixtureScoreInput } from "./fixtureScoreInput";
+import { FixtureStatus } from "./FixtureStatus";
+import { FixtureTeam } from "./FixtureTeam";
+import { FixtureScoreInput } from "./FixtureScoreInput";
 import { type StoredFixture } from "@/lib/hooks/useFixtureStorage";
 
 //When data is initialized we can map over the fixtures and return the component with its values

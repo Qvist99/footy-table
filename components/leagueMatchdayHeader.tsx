@@ -1,6 +1,6 @@
 "use client";
-import ChevronLeft from "@/utils/icons/chevronLeft.svg";
-import ChevronRight from "@/utils/icons/chevronRight.svg";
+import ChevronLeft from "@/components/icons/chevronLeft.svg";
+import ChevronRight from "@/components/icons/chevronRight.svg";
 import Image from "next/image";
 import { useRoundStore } from "@/lib/providers/round-store-provider";
 import {

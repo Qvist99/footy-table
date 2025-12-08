@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
-import { StandingsPanel } from "./standingsPanel"
-import { MatchDayFixtures } from "./matchDayFixtures"
-import { getAllFixtures } from "@/lib/fixtures"
+import { StandingsPanel } from "./standings/StandingsPanel"
+import { MatchDayFixtures } from "./MatchDayFixtures"
+import { getAllFixtures } from "@/lib/data/fixtures/fixtures";
 
 import { FixtureStorageProvider } from "@/lib/providers/fixture-storage-provider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"

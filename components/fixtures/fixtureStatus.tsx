@@ -1,9 +1,9 @@
-import { extractDateAndStartTime } from "@/utils/helpers"
+import { formatFixtureDate } from "@/lib/date/formatFixtureDate";
 import type { Fixture } from "@/lib/types";
 
 
 function renderStatus(fixture: Fixture) {
-    const { date, startTime } = extractDateAndStartTime(fixture.startDate);
+    const { date, startTime } = formatFixtureDate(fixture.startDate);
 
     if (fixture.status === "FINISHED") {
         return (

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import FootyTable from "@/utils/icons/footyTable.svg"
+import FootyTable from "@/components/icons/footyTable.svg"
 import {
     Dialog,
     DialogContent,
